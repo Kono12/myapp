@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/apps/newrecycler/app/src/main/res/drawable/black_white.xml" value="0.1" />
         <entry key="..\:/apps/newrecycler/app/src/main/res/drawable/red_grad.xml" value="0.1725" />
         <entry key="..\:/apps/newrecycler/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/apps/newrecycler/app/src/main/res/layout/my_card.xml" value="0.2" />

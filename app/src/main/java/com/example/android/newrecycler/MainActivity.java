@@ -2,6 +2,7 @@ package com.example.android.newrecycler;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,8 +42,14 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
 
         AdapterClass mainAdapter=new AdapterClass(myData);
         mainAdapter.register(this);
+
+
+        // choose your manager
         LinearLayoutManager L1=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        GridLayoutManager G1=new GridLayoutManager(this,1);
         rv.setLayoutManager(L1);
+
+
         rv.setAdapter(mainAdapter);
 
         ItemTouchHelper itemTouchHelper=new ItemTouchHelper(simpleCallback);
