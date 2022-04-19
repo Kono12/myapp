@@ -6,15 +6,11 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.media.MediaRouter;
+
 import android.os.Bundle;
-import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements AdapterClass.OnUserClicked {
@@ -80,8 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
          myData.remove(viewHolder.getAdapterPosition());
-         rv.getAdapter().notifyDataSetChanged();
-
+         rv.getAdapter().notifyItemRemoved(viewHolder.getAdapterPosition());
         }
     };
 
