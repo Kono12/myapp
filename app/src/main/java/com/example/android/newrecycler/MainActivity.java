@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
@@ -16,7 +17,7 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements AdapterClass.OnUserClicked {
 
-
+    MediaPlayer mediaPlayer=new MediaPlayer();
     RecyclerView rv;
     ArrayList<Data> myData=new ArrayList<>();
 
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         rv=findViewById(R.id.myRV);
+        mediaPlayer=MediaPlayer.create(this,R.raw.click);
+
+
 
         myData.add(new Data(R.drawable.boy4,"Mohamed Emad"));
         myData.add(new Data(R.drawable.boy4,"Yasser Hany"));
@@ -58,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
 
     @Override
     public void OnUserClicked(Data user) {
+        mediaPlayer.start();
         Toast.makeText(this, user.getTxt() , Toast.LENGTH_SHORT).show();
     }
 
@@ -87,6 +92,9 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         }
     };
 
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.release();
+    }
 }
