@@ -8,8 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
@@ -28,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         rv=findViewById(R.id.myRV);
         mediaPlayer=MediaPlayer.create(this,R.raw.click);
 
-
-
         myData.add(new Data(R.drawable.boy4,"Mohamed Emad"));
         myData.add(new Data(R.drawable.boy4,"Yasser Hany"));
         myData.add(new Data(R.drawable.girl,"Mariam Ahmed"));
@@ -47,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         AdapterClass mainAdapter=new AdapterClass(myData);
         mainAdapter.register(this);
 
-
         // choose your manager
         LinearLayoutManager L1=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         GridLayoutManager G1=new GridLayoutManager(this,1);
@@ -58,6 +59,43 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
 
         ItemTouchHelper itemTouchHelper=new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(rv);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+      MenuInflater menuInflater= getMenuInflater();
+      menuInflater.inflate(R.menu.menu,menu);
+      return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.menu_id:
+            {
+                mediaPlayer.start();
+                Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+                startActivity(i);
+                break;
+            }
+            case R.id.menu_camera:
+            {
+                mediaPlayer.start();
+                Toast.makeText(this, "Captured", Toast.LENGTH_SHORT).show();
+                break;
+            }
+            case R.id.menu_settings:
+            {
+                mediaPlayer.start();
+                Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show();
+                break;
+            }
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -93,8 +131,10 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
     };
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
         mediaPlayer.release();
     }
+
+
 }

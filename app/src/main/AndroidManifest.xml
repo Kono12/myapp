@@ -11,6 +11,7 @@
         android:theme="@style/Theme.NewRecycler">
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

@@ -21,6 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     public void BtnContactsClicked(View view) {
         Intent intent =new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void BtnHomeClicked(View view) {
@@ -37,5 +38,13 @@ public class HomeActivity extends AppCompatActivity {
         Fragment fragment = new AddContact();
         frag.replace(R.id.home_frame,fragment);
         frag.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ExitDialog exitDialog=new ExitDialog();
+        exitDialog.show(getSupportFragmentManager(),"");
+        exitDialog.setCancelable(false);
+
     }
 }
