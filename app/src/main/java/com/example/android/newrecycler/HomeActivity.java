@@ -45,6 +45,6 @@ public class HomeActivity extends AppCompatActivity {
         ExitDialog exitDialog=new ExitDialog();
         exitDialog.show(getSupportFragmentManager(),"");
         exitDialog.setCancelable(false);
-
     }
+
 }

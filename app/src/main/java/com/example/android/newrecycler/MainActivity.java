@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
                 mediaPlayer.start();
                 Intent i = new Intent(getApplicationContext(),HomeActivity.class);
                 startActivity(i);
+                finish();
                 break;
             }
             case R.id.menu_camera:
@@ -141,5 +142,6 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         mediaPlayer.start();
         Intent i = new Intent(getApplicationContext(),HomeActivity.class);
         startActivity(i);
+        finish();
     }
 }
