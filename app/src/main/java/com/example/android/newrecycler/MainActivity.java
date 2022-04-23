@@ -136,5 +136,10 @@ public class MainActivity extends AppCompatActivity implements AdapterClass.OnUs
         mediaPlayer.release();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        mediaPlayer.start();
+        Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+        startActivity(i);
+    }
 }
